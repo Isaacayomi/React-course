@@ -159,7 +159,17 @@ book;
 // primaryGenre
 
 // Destructuring an array
-const [primaryGenre, secondaryGenre, seniorGenre] = genres;
+// Rest operator
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
 primaryGenre;
 secondaryGenre;
-seniorGenre;
+otherGenres;
+
+// spread operator
+const newGenres = [...genres, "epic fantasy"];
+newGenres;
+
+// Rest and spread operator on objects
+// adding a new property using the spread operator
+const updatedBooks = { ...book, moviePublicationDate: "2003-12-09" };
+updatedBooks;
