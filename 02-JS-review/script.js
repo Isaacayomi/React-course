@@ -173,3 +173,15 @@ newGenres;
 // adding a new property using the spread operator
 const updatedBooks = { ...book, moviePublicationDate: "2003-12-09" };
 updatedBooks;
+
+const products = [
+  { id: 1, name: "Pizza", price: 10 },
+  { id: 2, name: "Burger", price: 5 },
+];
+
+const pizza = products.find((product) => product.name);
+pizza; // { id: 1, name: "Pizza", price: 10 }
+
+// Tenrary operator
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+pagesRange;
