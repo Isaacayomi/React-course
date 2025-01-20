@@ -198,3 +198,10 @@ const spanishTranslation = book.translations.spanish && "Not translated";
 console.log(spanishTranslation);
 
 // Optional chaining operator
+function getTotalReviewCount(book) {
+  const goodRead = book.reviews.goodreads.reviewCount;
+  const libraryThing = book.reviews.librarything.reviewCount;
+  return (goodRead = libraryThing);
+}
+
+getTotalReviewCount(book);
