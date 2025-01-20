@@ -144,7 +144,8 @@ function getBook(id) {
 }
 
 // Destructuring an object
-const book = getBook(1);
+/*
+const book = getBook(3);
 
 // const title = book.title;
 // const author = book.author;
@@ -199,9 +200,23 @@ console.log(spanishTranslation);
 
 // Optional chaining operator
 function getTotalReviewCount(book) {
-  const goodRead = book.reviews.goodreads.reviewCount;
-  const libraryThing = book.reviews.librarything.reviewCount;
-  return (goodRead = libraryThing);
+  const goodReads = book.reviews.goodreads.reviewsCount;
+  // incase the left part is undefined or null, the code still continues
+  const libraryThing = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodReads + libraryThing;
 }
 
-getTotalReviewCount(book);
+console.log(getTotalReviewCount(book)); */
+
+const books = getBooks();
+// the map method creates a new array based on the original array
+const x = [1, 2, 3, 4, 5].map((el) => el + 2);
+x;
+const titles = books.map((book) => book.title);
+titles;
+
+const essentialData = books.map((book) => {
+  const authorTitle = `title: ${book.title}, author: ${book.author}`;
+  return authorTitle;
+});
+essentialData;
