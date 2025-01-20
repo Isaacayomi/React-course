@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // Destructuring an object
-const book = getBook(2);
+const book = getBook(1);
 
 // const title = book.title;
 // const author = book.author;
@@ -185,3 +185,16 @@ pizza; // { id: 1, name: "Pizza", price: 10 }
 // Tenrary operator
 const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
 pagesRange;
+console.log(`the book has ${pagesRange} page`);
+
+// Arrow functions
+const getYear = (str) => str;
+console.log(getYear(publicationDate));
+
+// short circuiting
+// falsy: 0, '' , null, undefined
+console.log(hasMovieAdaptation && "some string");
+const spanishTranslation = book.translations.spanish && "Not translated";
+console.log(spanishTranslation);
+
+// Optional chaining operator
