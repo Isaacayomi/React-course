@@ -143,9 +143,9 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+const book = getBook(1);
 // Destructuring an object
 /*
-const book = getBook(3);
 
 // const title = book.title;
 // const author = book.author;
@@ -220,3 +220,28 @@ const essentialData = books.map((book) => {
   return authorTitle;
 });
 essentialData;
+
+// short circuting: when the first operand is true, the and operator will automatically return the second value.
+console.log(true && "Some string");
+
+//the short circuting in the AND operator only works when the first value is false
+console.log(false && "some string");
+// the short circuting in the OR operator woks when the first value is true and then returns it
+
+function getTotalReviewCount(book) {
+  const goodReads = book.reviews.goodreads.reviewsCount;
+  // incase the left part is undefined or null, the code still continues
+  const libraryThing = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodReads + libraryThing;
+}
+
+// The array filter method: used to filter out some elements of the array  based on a condition, and we can chain multiple filter methods too just like this.
+const longBooks = books
+  .filter((book) => book.pages > 500)
+  .map((book) => book.title);
+longBooks;
+// combining the filter and the map method to get books that inlcludes adventure in it's genres, and also map those book title out using the map method
+const adventureBooks = books
+  .filter((book) => book.genres.includes("adventure"))
+  .map((book) => book.title);
+adventureBooks;
