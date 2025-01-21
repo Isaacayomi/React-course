@@ -235,7 +235,7 @@ function getTotalReviewCount(book) {
   return goodReads + libraryThing;
 }
 
-// The array filter method: used to filter out some elements of the array  based on a condition, and we can chain multiple filter methods too just like this.
+// THE ARRAY FILTER METHOD: used to filter out some elements of the array  based on a condition, and we can chain multiple filter methods too just like this.
 const longBooks = books
   .filter((book) => book.pages > 500)
   .map((book) => book.title);
@@ -245,3 +245,13 @@ const adventureBooks = books
   .filter((book) => book.genres.includes("adventure"))
   .map((book) => book.title);
 adventureBooks;
+
+// THE ARRAY RREDUCE METHOD: it basically reduces the entire array into just one value
+const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
+pagesAllBooks;
+
+//THE ARRAY SORT METHOD
+const num = [1, 12, 19, 4];
+// using the slice method so that the original array would not be mutated
+const sorted = num.slice().sort((a, b) => a - b);
+sorted;
