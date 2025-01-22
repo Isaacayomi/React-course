@@ -207,7 +207,7 @@ function getTotalReviewCount(book) {
 }
 
 console.log(getTotalReviewCount(book)); */
-
+/*
 const books = getBooks();
 // the map method creates a new array based on the original array
 const x = [1, 2, 3, 4, 5].map((el) => el + 2);
@@ -280,3 +280,19 @@ const booksAfterUpdate = booksAFterDelete.map((book) =>
     : book
 );
 booksAfterUpdate;
+*/
+
+// Asynchronous JavaScript Promises: using promises
+// fetch(`https://jsonplaceholder.typicode.com/todos`)
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+// console.log("jonas");
+
+// Asynchronous JavaScript Promises: using asyncawait
+async function getTodos() {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/todos`);
+  const data = await res.json();
+  console.log(data);
+}
+getTodos();
+console.log("Jonas");
