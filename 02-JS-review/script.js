@@ -255,3 +255,28 @@ const num = [1, 12, 19, 4];
 // using the slice method so that the original array would not be mutated
 const sorted = num.slice().sort((a, b) => a - b);
 sorted;
+
+// WORKING WITH IMMUTABLE ARRAYS
+// 1 Add book object to array
+const newBook = {
+  id: 6,
+  title: "Harry Porter and the Chanber of Secretes",
+  author: "J. K. Rowling",
+};
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+// 2 Delete a book object from the array
+const booksAFterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+booksAFterDelete;
+
+// 3 Update a book object in the array
+const booksAfterUpdate = booksAFterDelete.map((book) =>
+  book.id === 1
+    ? {
+        ...book,
+        pages: 1210,
+      }
+    : book
+);
+booksAfterUpdate;
