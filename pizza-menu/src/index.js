@@ -78,7 +78,7 @@ function Menu() {
       {/* Rendering Lists */}
       <ul className="pizzas">
         {pizzaData.map((pizza) => (
-          <Pizza pizzaObj={pizza} key={pizza.name} />
+          <Pizza curPizzaObj={pizza} key={pizza.name} />
         ))}
       </ul>
 
@@ -100,14 +100,13 @@ function Menu() {
 }
 
 function Pizza(props) {
-  console.log(props);
   return (
     <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+      <img src={props.curPizzaObj.photoName} alt={props.curPizzaObj.name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price}</span>
+        <h3>{props.curPizzaObj.name}</h3>
+        <p>{props.curPizzaObj.ingredients}</p>
+        <span>{props.curPizzaObj.price}</span>
       </div>
     </li>
   );
@@ -124,7 +123,15 @@ function Footer() {
   // else alert("Sorry we are closed ");
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()} We are currently open!
+      <div className="order">
+        {isOpen ? (
+          <p>"We are currently open till {closeHour}:00</p>
+        ) : (
+          <p>We are currently closed until {openHour}:00</p>
+        )}
+        <button className="btn">Order</button>
+      </div>
+      {/* {new Date().toLocaleTimeString()} We are currently open! */}
     </footer>
   );
 }
