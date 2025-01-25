@@ -100,6 +100,7 @@ function Menu() {
 }
 
 function Pizza(props) {
+  if (props.curPizzaObj.soldOut) return null;
   return (
     <li className="pizza">
       <img src={props.curPizzaObj.photoName} alt={props.curPizzaObj.name} />
@@ -121,6 +122,7 @@ function Footer() {
 
   // if (hour >= openHour && hour <= closeHour) alert("We are currently open");
   // else alert("Sorry we are closed ");
+
   return (
     <footer className="footer">
       <div className="order">
