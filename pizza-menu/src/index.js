@@ -127,14 +127,22 @@ function Footer() {
     <footer className="footer">
       <div className="order">
         {isOpen ? (
-          <p>"We are currently open till {closeHour}:00</p>
+          <Order openHours={openHour} />
         ) : (
-          <p>We are currently closed until {openHour}:00</p>
+          <p>We are currently closed until {closeHour}:00</p>
         )}
         <button className="btn">Order</button>
       </div>
       {/* {new Date().toLocaleTimeString()} We are currently open! */}
     </footer>
+  );
+}
+
+function Order(props) {
+  return (
+    <div className="order">
+      <p>"We are currently open till {props.openHours}:00</p>
+    </div>
   );
 }
 
