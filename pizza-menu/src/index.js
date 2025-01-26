@@ -75,6 +75,11 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our menu</h2>
+      <p>
+        Authentic Italic cuisine, 6 creative dishes to choose from. All from our
+        stone oven, all organnic, all delicious
+      </p>
+
       {/* Rendering Lists */}
       <ul className="pizzas">
         {pizzaData.map((pizza) => (
@@ -100,14 +105,22 @@ function Menu() {
 }
 
 function Pizza({ curPizzaObj }) {
-  if (curPizzaObj.soldOut) return null;
+  // if (curPizzaObj.soldOut) return null;
   return (
-    <li className="pizza">
+    <li className={`pizza ${curPizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={curPizzaObj.photoName} alt={curPizzaObj.name} />
       <div>
         <h3>{curPizzaObj.name}</h3>
         <p>{curPizzaObj.ingredients}</p>
-        <span>{curPizzaObj.price}</span>
+
+        <span>{curPizzaObj.soldOut ? "Sold out" : curPizzaObj.price}</span>
+
+        {/*OR*/}
+        {/* {curPizzaObj.soldOut ? (
+          <span>SOLD OUT</span>
+        ) : (
+          <span>{curPizzaObj.price}</span>
+        )} */}
       </div>
     </li>
   );
