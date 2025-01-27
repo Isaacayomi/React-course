@@ -9,9 +9,9 @@ export default function App() {
   return (
     <div className="steps">
       <div className="numbers">
-        <div className={`${step >= 1 ? "active" : ""}`}>1</div>
-        <div className={`${step >= 2 ? "active" : ""}`}>2</div>
-        <div className={`${step >= 3 ? "active" : ""}`}>3</div>
+        <NumberButtons value="1" step={step} />
+        <NumberButtons value="2" step={step} />
+        <NumberButtons value="3" step={step} />
       </div>
 
       <p className="message">
@@ -22,6 +22,14 @@ export default function App() {
         <Buttons name="Next" />
         <Buttons name="Previous" />
       </div>
+    </div>
+  );
+}
+
+function NumberButtons(props) {
+  return (
+    <div className={`${props.step >= props.value ? "active" : ""}`}>
+      {props.value}
     </div>
   );
 }
