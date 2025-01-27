@@ -35,9 +35,16 @@ function NumberButtons(props) {
 }
 
 function Buttons(props) {
+  function handleButtons() {
+    alert(props.name);
+  }
+
   return (
     <div className="buttons">
-      <button style={{ backgroundColor: "#7950f2", color: "#fff" }}>
+      <button
+        style={{ backgroundColor: "#7950f2", color: "#fff" }}
+        onClick={handleButtons}
+      >
         {props.name}
       </button>
     </div>
